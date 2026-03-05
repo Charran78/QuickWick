@@ -1,6 +1,7 @@
 import * as Handlebars from 'handlebars';
 import { promises as fs } from 'fs';
 import * as path from 'path';
+import { exec } from 'child_process';
 import { ProjectConfig, TemplateEntry } from './types';
 
 // vscode NO se importa aquí para mantener el módulo desacoplado y testeable.
@@ -13,6 +14,7 @@ const TEMPLATES_ROOT = path.join(__dirname, '..', 'templates');
 // Helpers de Handlebars
 // ============================================================
 Handlebars.registerHelper('eq', (a: any, b: any) => a === b);
+Handlebars.registerHelper('currentDate', () => new Date().toLocaleDateString());
 
 /**
  * Genera el proyecto a partir de la configuración del usuario.
@@ -39,7 +41,7 @@ export async function generateProject(config: ProjectConfig, targetPath: string,
 /**
  * Determina qué plantillas se necesitan según la configuración.
  */
-function determineTemplates(config: ProjectConfig): TemplateEntry[] {
+export function determineTemplates(config: ProjectConfig): TemplateEntry[] {
       const templates: TemplateEntry[] = [];
 
       // ---------------- Base ----------------
@@ -140,11 +142,17 @@ function determineTemplates(config: ProjectConfig): TemplateEntry[] {
             }
       }
 
-      // ---------------- Documentación (siempre) ----------------
+      // ---------------- Documentación y Gobernanza (siempre) ----------------
       templates.push(
             { source: 'docs/explanation.md.hbs', dest: 'docs/explanation.md', type: 'hbs' },
             { source: 'docs/next-steps.md.hbs', dest: 'docs/next-steps.md', type: 'hbs' },
             { source: 'docs/glossary.md.hbs', dest: 'docs/glossary.md', type: 'hbs' },
+
+            // Artefactos de Gobernanza Críticos
+            { source: 'docs/contract.md.hbs', dest: 'contract.md', type: 'hbs' },
+            { source: 'docs/context/ARCHITECTURE.md.hbs', dest: '.context/ARCHITECTURE.md', type: 'hbs' },
+            { source: 'docs/context/SPECS.md.hbs', dest: '.context/SPECS.md', type: 'hbs' },
+            { source: 'docs/context/STATUS.md.hbs', dest: '.context/STATUS.md', type: 'hbs' },
       );
 
       return templates;
@@ -205,13 +213,15 @@ async function initGit(targetPath: string, vscode: any): Promise<void> {
       });
 
       if (answer === 'Sí') {
-            const { exec } = require('child_process');
-            exec('git init', { cwd: targetPath }, (err: any) => {
-                  if (err) {
-                        vscode.window.showErrorMessage('Error al inicializar git: ' + err.message);
-                  } else {
-                        vscode.window.showInformationMessage('Repositorio Git inicializado en ' + targetPath);
-                  }
+            return new Promise((resolve) => {
+                  exec('git init', { cwd: targetPath }, (err: any) => {
+                        if (err) {
+                              vscode.window.showErrorMessage('Error al inicializar git: ' + err.message);
+                        } else {
+                              vscode.window.showInformationMessage('Repositorio Git inicializado en ' + targetPath);
+                        }
+                        resolve();
+                  });
             });
       }
 }

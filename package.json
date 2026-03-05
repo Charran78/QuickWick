@@ -1,0 +1,97 @@
+{
+  "name": "quickwick",
+  "displayName": "QuickWick",
+  "description": "El arquitecto de software que genera proyectos sin deuda técnica.",
+  "version": "0.0.1",
+  "publisher": "your-publisher-name",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:quickwick.generateFromConfig",
+    "onCommand:quickwick.setGeminiApiKey",
+    "onCommand:quickwick.setOpenAIApiKey",
+    "onCommand:quickwick.clearGeminiApiKey",
+    "onCommand:quickwick.clearOpenAIApiKey",
+    "onCommand:quickwick.openWizard"
+  ],
+  "main": "./out/src/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "quickwick.generateFromConfig",
+        "title": "QuickWick: Generar Proyecto"
+      },
+      {
+        "command": "quickwick.setGeminiApiKey",
+        "title": "QuickWick: Configurar API Key de Gemini"
+      },
+      {
+        "command": "quickwick.setOpenAIApiKey",
+        "title": "QuickWick: Configurar API Key de OpenAI"
+      },
+      {
+        "command": "quickwick.clearGeminiApiKey",
+        "title": "QuickWick: Eliminar API Key de Gemini"
+      },
+      {
+        "command": "quickwick.clearOpenAIApiKey",
+        "title": "QuickWick: Eliminar API Key de OpenAI"
+      },
+      {
+        "command": "quickwick.openWizard",
+        "title": "QuickWick: Abrir Asistente de Génesis"
+      }
+    ],
+    "configuration": {
+      "title": "QuickWick Configuration",
+      "properties": {
+        "quickwick.ollamaUrl": {
+          "type": "string",
+          "default": "http://localhost:11434",
+          "description": "URL del servidor de Ollama local (ej: http://localhost:11434)."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTests.js",
+    "package-webview": "webpack --config ./webview.webpack.config.js --mode production",
+    "watch-webview": "webpack --config ./webview.webpack.config.js --watch"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "@babel/preset-react": "^7.25.9",
+    "@babel/preset-typescript": "^7.28.5",
+    "@types/node": "^18.17.0",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
+    "@types/vscode": "^1.80.0",
+    "@typescript-eslint/eslint-plugin": "^6.4.1",
+    "@typescript-eslint/parser": "^6.4.1",
+    "babel-loader": "^9.2.1",
+    "css-loader": "^6.8.1",
+    "eslint": "^8.47.0",
+    "style-loader": "^3.3.3",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.1.6",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "handlebars": "^4.7.8",
+    "lucide-react": "^0.577.0",
+    "node-fetch": "^3.3.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}

@@ -1,0 +1,71 @@
+# {{project_meta.name}}
+
+{{project_meta.description}}
+
+## 📋 Descripción del proyecto
+
+Este proyecto ha sido generado con **[QuickWick](https://github.com/tuusuario/quickwick)** – una herramienta que te ayuda a crear proyectos libres de deuda técnica desde el primer momento.
+
+## 🚀 Tecnologías utilizadas
+
+| Capa | Tecnología |
+|------|------------|
+| **Frontend** | {{tech_stack.frontend.framework}} ({{tech_stack.frontend.language}}) |
+| **Estilos** | {{tech_stack.frontend.styling}} |
+| **Estado** | {{tech_stack.frontend.state_management}} |
+| **Backend** | {{tech_stack.backend.runtime}} / {{tech_stack.backend.framework}} |
+| **API** | {{tech_stack.backend.api_type}} |
+| **Base de datos SQL** | {{tech_stack.database.sql}} |
+| **Base de datos NoSQL** | {{tech_stack.database.nosql}} |
+| **Autenticación** | {{tech_stack.auth.provider}} |
+| **Despliegue** | {{deployment.platform}} |
+
+## 📁 Estructura del proyecto
+{{#if tech_stack.frontend.framework}}frontend/ # Código del cliente{{/if}}
+{{#if tech_stack.backend.runtime}}backend/ # Código del servidor{{/if}}
+{{#if tech_stack.database.sql}}database/ # Scripts y configuraciones de BD{{/if}}
+docs/ # Documentación adicional
+
+## 🛠️ Instalación y uso
+
+### Prerrequisitos
+- Node.js 18+ / Python 3.9+ / Go 1.20+ (según tu stack)
+- npm / yarn / pnpm
+- Git
+
+### Pasos rápidos
+
+```bash
+# Clonar el repositorio (si aún no lo has hecho)
+git clone <url-del-repo>
+cd {{project_meta.name}}
+
+# Instalar dependencias
+{{#if (eq tech_stack.backend.runtime "Node.js")}}npm install{{/if}}
+{{#if (eq tech_stack.backend.runtime "Python")}}pip install -r requirements.txt{{/if}}
+{{#if (eq tech_stack.backend.runtime "Go")}}go mod download{{/if}}
+
+# Configurar variables de entorno
+cp .env.example .env
+# Edita .env con tus credenciales
+
+# Iniciar en desarrollo
+{{#if (eq tech_stack.frontend.framework "React")}}npm run dev{{/if}}
+{{#if (eq tech_stack.backend.runtime "Node.js")}}npm run start{{/if}}
+{{#if (eq tech_stack.backend.runtime "Python")}}uvicorn main:app --reload{{/if}}
+```
+
+## 📚 Documentación adicional
+En la carpeta `docs/` encontrarás:
+
+- `explanation.md` – Explicación detallada del proyecto para principiantes.
+- `next-steps.md` – Qué hacer después de generar el proyecto.
+- `glossary.md` – Glosario de términos técnicos.
+
+## 📄 Licencia
+
+Este proyecto está bajo la licencia {{project_meta.license}}.
+
+---
+
+Generado con ❤️ por QuickWick

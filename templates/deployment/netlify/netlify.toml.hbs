@@ -1,0 +1,6 @@
+[build]
+command = "{{#if tech_stack.frontend}}npm run build{{/if}}"
+publish = "{{#if tech_stack.frontend}}frontend/dist{{/if}}"
+
+[build.environment]
+NODE_VERSION = "18"

@@ -1,0 +1,18 @@
+// Elementos del DOM
+const counterButton = document.getElementById('counter');
+let count = 0;
+
+// Actualizar el contador
+function updateCounter() {
+  counterButton.textContent = `Clics: ${count}`;
+}
+
+// Evento de clic
+counterButton.addEventListener('click', () => {
+  count++;
+  updateCounter();
+});
+
+// Inicializar
+updateCounter();
+console.log('¡Aplicación lista!');

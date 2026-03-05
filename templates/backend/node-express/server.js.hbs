@@ -1,0 +1,26 @@
+const express = require('express');
+const cors = require('cors');
+const morgan = require('morgan');
+require('dotenv').config();
+
+const app = express();
+const port = process.env.PORT || 3001;
+
+// Middlewares
+app.use(cors());
+app.use(morgan('dev'));
+app.use(express.json());
+
+// Rutas
+const apiRoutes = require('./routes/api');
+app.use('/api', apiRoutes);
+
+// Ruta de prueba
+app.get('/', (req, res) => {
+  res.json({ message: 'Bienvenido a la API de {{project_meta.name}}' });
+});
+
+// Iniciar servidor
+app.listen(port, () => {
+  console.log(`Servidor corriendo en http://localhost:${port}`);
+});

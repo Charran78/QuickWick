@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "{{#if tech_stack.frontend}}frontend/{{/if}}{{#if tech_stack.backend}}backend/server.js{{/if}}",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "{{#if tech_stack.backend}}backend/server.js{{else}}frontend/index.html{{/if}}"
+    }
+  ]
+}

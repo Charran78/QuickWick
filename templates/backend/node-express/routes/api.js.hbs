@@ -1,0 +1,16 @@
+const express = require('express');
+const router = express.Router();
+
+// Ejemplo de ruta GET
+router.get('/items', (req, res) => {
+  res.json({ items: [] });
+});
+
+// Ejemplo de ruta POST
+router.post('/items', (req, res) => {
+  const newItem = req.body;
+  // Aquí iría la lógica para guardar
+  res.status(201).json({ message: 'Item creado', item: newItem });
+});
+
+module.exports = router;

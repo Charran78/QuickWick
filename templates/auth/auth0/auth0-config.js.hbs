@@ -1,0 +1,27 @@
+// Configuración de Auth0 para {{project_meta.name}}
+// Reemplaza estos valores con los de tu tenant de Auth0
+
+export const auth0Config = {
+  domain: "{{auth0.domain}}",
+  clientId: "{{auth0.clientId}}",
+  audience: "{{auth0.audience}}",
+  redirectUri: "{{auth0.redirectUri}}",
+  logoutReturnTo: "{{auth0.logoutReturnTo}}"
+};
+
+// Ejemplo de inicialización en un cliente SPA (React, Vue, etc.)
+// Aquí sólo dejamos la configuración lista para ser importada
+
+/*
+import { Auth0Client } from "@auth0/auth0-spa-js";
+import { auth0Config } from "./auth0-config";
+
+export const auth0Client = new Auth0Client({
+  domain: auth0Config.domain,
+  client_id: auth0Config.clientId,
+  authorizationParams: {
+    redirect_uri: auth0Config.redirectUri,
+    audience: auth0Config.audience
+  }
+});
+*/

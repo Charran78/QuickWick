@@ -1,0 +1,41 @@
+# Base de datos PostgreSQL
+
+Este proyecto utiliza PostgreSQL como base de datos relacional.
+
+## Iniciar la base de datos con Docker
+
+```bash
+docker-compose up -d
+```
+
+Esto levantará un contenedor con PostgreSQL en el puerto 5432.
+
+## Credenciales por defecto
+
+- Base de datos: {{project_meta.name}}
+- Usuario: user
+- Contraseña: password
+
+## Conectarse desde la aplicación
+
+Usa la siguiente URL de conexión:
+
+```text
+postgresql://user:password@localhost:5432/{{project_meta.name}}
+```
+
+## Inicialización
+
+El archivo `schema.sql` se ejecutará automáticamente la primera vez que se inicie el contenedor.
+
+## Detener la base de datos
+
+```bash
+docker-compose down
+```
+
+Para eliminar también los datos (volumen):
+
+```bash
+docker-compose down -v
+```

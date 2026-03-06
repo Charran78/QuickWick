@@ -8,7 +8,7 @@ import { ProjectConfig, TemplateEntry } from './types';
 // Se recibe como dependencia inyectada en generateProject().
 
 /** Ruta absoluta a la carpeta raíz de templates (una carpeta arriba de /app). */
-const TEMPLATES_ROOT = path.join(__dirname, '..', 'templates');
+const TEMPLATES_ROOT = path.join(__dirname, '..', '..', 'templates');
 
 // ============================================================
 // Helpers de Handlebars

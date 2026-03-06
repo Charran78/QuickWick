@@ -1,0 +1,27 @@
+# Source and Build configs
+src/**
+app/**
+tsconfig.json
+webview.webpack.config.js
+vitest.config.ts
+package-lock.json
+
+# Development tools and output
+coverage/**
+test-target/**
+.vscode-test/**
+.git/**
+.gitignore
+
+# Media and Docs sources (we keep only what's needed for README/Icon)
+# LOGO_MINI.png is kept because it's the extension icon
+BANNER.png
+
+# Keep
+!out/**
+!media/**
+!templates/**
+!package.json
+!README.md
+!LICENSE
+!LOGO_MINI.png

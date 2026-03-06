@@ -3,13 +3,18 @@
   "displayName": "QuickWick",
   "description": "El arquitecto de software que genera proyectos sin deuda técnica.",
   "version": "0.0.1",
-  "publisher": "your-publisher-name",
+  "publisher": "Charran78",
+  "icon": "LOGO_MINI.png",
   "engines": {
     "vscode": "^1.80.0"
   },
   "categories": [
     "Other"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Charran78/QuickWick.git"
+  },
   "activationEvents": [
     "onCommand:quickwick.generateFromConfig",
     "onCommand:quickwick.setGeminiApiKey",
@@ -74,6 +79,7 @@
     "@babel/preset-env": "^7.26.0",
     "@babel/preset-react": "^7.25.9",
     "@babel/preset-typescript": "^7.28.5",
+    "@tailwindcss/postcss": "^4.2.1",
     "@types/node": "^18.17.0",
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
@@ -81,10 +87,17 @@
     "@typescript-eslint/eslint-plugin": "^6.4.1",
     "@typescript-eslint/parser": "^6.4.1",
     "@vitest/coverage-v8": "^4.0.18",
+    "autoprefixer": "^10.4.27",
     "babel-loader": "^9.2.1",
     "css-loader": "^6.8.1",
     "eslint": "^8.47.0",
+    "lucide-react": "^0.577.0",
+    "postcss": "^8.5.8",
+    "postcss-loader": "^8.2.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "style-loader": "^3.3.3",
+    "tailwindcss": "^4.2.1",
     "ts-loader": "^9.5.1",
     "typescript": "^5.1.6",
     "vitest": "^4.0.18",
@@ -93,9 +106,6 @@
   },
   "dependencies": {
     "handlebars": "^4.7.8",
-    "lucide-react": "^0.577.0",
-    "node-fetch": "^3.3.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "node-fetch": "^3.3.2"
   }
 }

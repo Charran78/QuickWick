@@ -11,3 +11,8 @@ Thumbs.db
 coverage/
 test-target/
 .vscode-test/
+
+# Proyectos y ejemplos locales
+EJEMPLOS DE CODIGOS/
+*.vsix
+package-lock.json

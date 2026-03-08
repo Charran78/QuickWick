@@ -84,6 +84,24 @@ QuickWick/
 
 ---
 
+<br />
+
+<p align="center">
+  <a href="https://pedromencias.netlify.app/">
+    <img align="center" src="https://i.postimg.cc/GmX5PCN5/PF-ok2.png" width="256" alt="Portfolio" /> 
+  </a>
+  <a href="https://www.linkedin.com/in/pedro-menc%C3%ADas-68223336b/">
+    <img align="center" src="https://i.postimg.cc/9MjsxpmM/LI-Logo.png" width="256" alt="LinkedIn" /> 
+  </a>
+  <a href="https://www.buymeacoffee.com/beyonddigiv">
+    <img align="center" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" width="256" alt="beyonddigiv" /> 
+  </a>
+</p>
+
+<br/>
+
+---
+
 ## 📝 Contribuir
 
 Este es un proyecto vivo. Si tienes ideas para nuevas plantillas o arquitecturas, ¡siéntete libre de abrir un PR en nuestro [Repositorio de GitHub](https://github.com/Charran78/QuickWick)!
